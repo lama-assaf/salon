@@ -63,7 +63,7 @@ a full run through salon, start to finish:
 
 1. `/salon:campaign`: turn a goal into a campaign brief (campaign-brief skill), then offers to build the calendar.
 2. content-calendar: lay out the pillar-by-format grid and posting cadence.
-3. draft the content: `/salon:thread`, `/salon:linkedin`, `/salon:announce`, or `/salon:broadcast`, each running a post-audit pass before it ships.
+3. draft the content: `/salon:thread`, `/salon:linkedin`, `/salon:announce`, or `/salon:broadcast`. thread and linkedin offer a post-audit pass before shipping; announce and broadcast post via a connected MCP or hand back the draft.
 4. `/salon:launch`: the golden-hour engagement checklist for the first hours after a post goes live.
 5. `/salon:engage` and `/salon:comment`: reply-playbook for comments on your own posts, comment-strategy for warming up other people's.
 6. `/salon:retro`: score results against the brief's benchmark bands and write down what actually worked.
