@@ -406,7 +406,77 @@ if (fs.existsSync(promptContextPath)) {
 }
 
 // ============================================================
-// 9. docs substantive + README credits section
+// 9. checks.js unit tests
+// ============================================================
+section('checks.js unit tests');
+
+const { findBannedTone, checkRhythm, scanText, checkEmDashFiller } = require(path.join(HOOKS_DIR, 'lib/checks.js'));
+
+// banned tone hits
+{
+  const hits = findBannedTone('we leverage cutting-edge synergies daily.');
+  if (hits.length === 3) ok('findBannedTone: 3 hits in test sentence');
+  else err('findBannedTone count', `expected 3, got ${hits.length}: ${JSON.stringify(hits.map(h => h.phrase))}`);
+}
+
+// clean content has no hits
+{
+  const hits = findBannedTone('we built a simple thing that works.');
+  if (hits.length === 0) ok('findBannedTone: 0 hits on clean text');
+  else err('findBannedTone clean', `expected 0, got ${hits.length}`);
+}
+
+// inflections
+{
+  const hits = findBannedTone('we leveraged the system and empowered the team.');
+  if (hits.length === 2) ok('findBannedTone: catches -ed inflections');
+  else err('findBannedTone inflections', `expected 2, got ${hits.length}`);
+}
+
+// technical context allowlist
+{
+  const hits = findBannedTone('the test harness validates the system.');
+  if (hits.length === 0) ok('findBannedTone: allowlists "test harness"');
+  else err('findBannedTone allowlist', `expected 0, got ${hits.length}: ${JSON.stringify(hits.map(h => h.phrase))}`);
+}
+
+// rhythm flatness detected
+{
+  const r = checkRhythm('this is a sentence. this is another sentence. this is one more sentence. this is yet another sentence. this is the final.');
+  if (r.flag === true) ok('checkRhythm: detects flat rhythm');
+  else err('checkRhythm flat', `expected flag=true, got ${JSON.stringify(r)}`);
+}
+
+// rhythm varied
+{
+  const r = checkRhythm('short. then a medium one. now a really long sentence that goes on and on with many words. ok. done.');
+  if (r.flag === false) ok('checkRhythm: passes varied rhythm');
+  else err('checkRhythm varied', `expected flag=false, got ${JSON.stringify(r)}`);
+}
+
+// empty input
+{
+  const r = checkRhythm('');
+  if (r.flag === false && r.sentenceCount === 0) ok('checkRhythm: handles empty');
+  else err('checkRhythm empty', JSON.stringify(r));
+}
+
+// scanText returns combined result
+{
+  const r = scanText('we leverage synergies. we leverage synergies. we leverage synergies.');
+  if (r.summary.toneHits > 0) ok('scanText: combined banned tone');
+  else err('scanText combined', JSON.stringify(r.summary));
+}
+
+// em-dash filler
+{
+  const r = checkEmDashFiller('this is a sentence — with em dash filler — that goes on.');
+  if (r.length === 1) ok('checkEmDashFiller: detects pattern');
+  else err('checkEmDashFiller', `expected 1, got ${r.length}`);
+}
+
+// ============================================================
+// 10. docs substantive + README credits section
 // tolerant: each doc is skipped (not failed) while absent, since README
 // and DISCLAIMER only land in Task 10. LICENSE exists from Task 1 on.
 // ============================================================
