@@ -361,12 +361,31 @@ if (fs.existsSync(promptContextPath)) {
   const promptContextSrc = fs.readFileSync(promptContextPath, 'utf-8');
   const referencedSkills = [...promptContextSrc.matchAll(/'(skills\/[a-z-]+\/SKILL\.md)'/g)].map((m) => m[1]);
   const uniqueRefs = [...new Set(referencedSkills)];
+
+  // skills that land in later plan tasks; anything else missing is a typo.
+  // prune entries as the real skills land — final review checks this is empty-able.
+  const PENDING_SKILLS = new Set([
+    'skills/discord-announcement/SKILL.md',
+    'skills/telegram-broadcast/SKILL.md',
+    'skills/hook-writing/SKILL.md',
+    'skills/post-audit/SKILL.md',
+    'skills/adversarial-refinement/SKILL.md',
+    'skills/comment-strategy/SKILL.md',
+    'skills/reply-playbook/SKILL.md',
+    'skills/engagement-monitor/SKILL.md',
+    'skills/community-health/SKILL.md',
+    'skills/launch-window/SKILL.md',
+    'skills/campaign-brief/SKILL.md',
+    'skills/content-calendar/SKILL.md',
+    'skills/campaign-retro/SKILL.md',
+    'skills/social-listening/SKILL.md',
+  ]);
+
   for (const r of uniqueRefs) {
     const full = path.join(ROOT, r);
-    // tolerant: most referenced skills land in Task 6, not here — only the two
-    // memory-test targets (x-thread, linkedin-post) are seeded in Task 3.
     if (fs.existsSync(full)) ok(`prompt-context ref: ${r}`);
-    else ok(`prompt-context ref ${r} not yet present, skipping`);
+    else if (PENDING_SKILLS.has(r)) ok(`prompt-context ref ${r} pending later task, skipping`);
+    else err('prompt-context ref', `${r} referenced by KEYWORDS but missing`);
   }
 
   const referencedRules = [...promptContextSrc.matchAll(/'(rules\/[a-z\/-]+\.md)'/g)].map((m) => m[1]);
