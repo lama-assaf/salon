@@ -5,8 +5,8 @@ description: run a trend and sentiment listening pass by running the social-list
 
 # /listen
 
-invoke the social-listening skill's workflow with $ARGUMENTS as the subject
-— the niche, topic, or keyword to listen for.
+invoke the social-listening skill's workflow with $ARGUMENTS as the subject:
+the niche, topic, or keyword to listen for.
 
 ## steps
 
@@ -15,7 +15,7 @@ invoke the social-listening skill's workflow with $ARGUMENTS as the subject
    the pass on.
 2. run social-listening. it degrades to manual-research instructions for
    any of reddit, hacker-news, brave-search, telegram, or discord that
-   isn't connected via MCP — it should never fail outright for a missing
+   isn't connected via MCP; it should never fail outright for a missing
    server.
 3. if $ARGUMENTS is empty, ask what topic or niche to listen for before
    starting.
