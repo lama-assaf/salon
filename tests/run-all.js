@@ -372,11 +372,6 @@ if (fs.existsSync(promptContextPath)) {
   // skills that land in later plan tasks; anything else missing is a typo.
   // prune entries as the real skills land — final review checks this is empty-able.
   const PENDING_SKILLS = new Set([
-    'skills/discord-announcement/SKILL.md',
-    'skills/telegram-broadcast/SKILL.md',
-    'skills/hook-writing/SKILL.md',
-    'skills/post-audit/SKILL.md',
-    'skills/adversarial-refinement/SKILL.md',
     'skills/comment-strategy/SKILL.md',
     'skills/reply-playbook/SKILL.md',
     'skills/engagement-monitor/SKILL.md',
