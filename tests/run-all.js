@@ -20,6 +20,7 @@
 'use strict';
 
 const fs = require('fs');
+const os = require('os');
 const path = require('path');
 const { spawnSync } = require('child_process');
 
@@ -275,9 +276,15 @@ for (const hookFile of ['pre-write.js', 'prompt-context.js']) {
 }
 
 if (fs.existsSync(preWritePath)) {
+  // isolate HOME so these standalone-behavior checks aren't skewed by atelier
+  // being co-installed on the machine running the tests (deference is tested
+  // separately in tests/prewrite-deference.test.js).
+  const cleanHome = fs.mkdtempSync(path.join(os.tmpdir(), 'salon-runall-home-'));
+  const standaloneEnv = { ...process.env, HOME: cleanHome, ATELIER_ROOT: '' };
+
   // run pre-write with empty stdin (should exit 0 silently)
   {
-    const r = spawnSync('node', [preWritePath], { input: '', encoding: 'utf-8' });
+    const r = spawnSync('node', [preWritePath], { input: '', encoding: 'utf-8', env: standaloneEnv });
     if (r.status === 0 && r.stdout.length === 0) ok('pre-write: empty input → silent exit 0');
     else err('pre-write empty input', `status=${r.status}, stdout="${r.stdout}", stderr="${r.stderr}"`);
   }
@@ -288,7 +295,7 @@ if (fs.existsSync(preWritePath)) {
       tool_name: 'Write',
       tool_input: { file_path: 'test.md', content: 'leverage cutting-edge synergies to elevate our robust offering.' },
     });
-    const r = spawnSync('node', [preWritePath], { input, encoding: 'utf-8' });
+    const r = spawnSync('node', [preWritePath], { input, encoding: 'utf-8', env: standaloneEnv });
     if (r.status === 0 && r.stdout.includes('tone flags')) ok('pre-write: detects banned tone');
     else err('pre-write banned tone', `status=${r.status}, stdout=${r.stdout.slice(0,200)}`);
   }
@@ -299,7 +306,7 @@ if (fs.existsSync(preWritePath)) {
       tool_name: 'Write',
       tool_input: { file_path: 'image.png', content: 'robust seamless cutting-edge' },
     });
-    const r = spawnSync('node', [preWritePath], { input, encoding: 'utf-8' });
+    const r = spawnSync('node', [preWritePath], { input, encoding: 'utf-8', env: standaloneEnv });
     if (r.status === 0 && r.stdout.length === 0) ok('pre-write: skips binary path');
     else err('pre-write binary path', `expected silent exit, got status=${r.status}, stdout=${r.stdout}`);
   }
@@ -313,7 +320,7 @@ if (fs.existsSync(preWritePath)) {
     const r = spawnSync('node', [preWritePath], {
       input,
       encoding: 'utf-8',
-      env: { ...process.env, SALON_HOOK_STRICT: '1' },
+      env: { ...standaloneEnv, SALON_HOOK_STRICT: '1' },
     });
     if (r.status === 2) ok('pre-write: strict mode blocks (exit 2)');
     else err('pre-write strict', `expected exit 2, got ${r.status}`);

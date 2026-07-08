@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "social campaign operator for X, LinkedIn, Discord and Telegram",
   "scripts": {
-    "test": "node tests/run-all.js && node tests/memory-resolution.test.js && node tests/guardrail-sync.test.js"
+    "test": "node tests/run-all.js && node tests/memory-resolution.test.js && node tests/guardrail-sync.test.js && node tests/prewrite-deference.test.js"
   },
   "author": { "name": "lama-assaf", "url": "https://github.com/lama-assaf" },
   "license": "MIT",
