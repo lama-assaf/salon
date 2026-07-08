@@ -21,7 +21,7 @@ Each platform has distinct affordances and audience expectations. Respect them.
 - **Post length:** 900–1,300 characters is the sweet spot for engagement
 - **Formatting:** Lines should be ≤55 characters with blank lines between them for readability
 - **Hashtags:** Use 0–2 at the end; more dilutes reach
-- **Links:** External links go in the first comment, not in the body—body links cost roughly half reach or worse
+- **Links:** External links go in the first comment, not in the body—body links cost roughly 0.3-0.6x reach
 
 ## Discord
 

@@ -17,7 +17,7 @@ Use before anything goes live: a finished thread, LinkedIn post, Discord announc
 4. Run the AI-tell scan across all three tiers in `rules/social/ai-tells.md` plus the shared `rules/copy/anti-ai-tone.md` — forensic tier is an automatic flag, strict tier is flagged by default, aesthetic tier gets judgment.
 5. Run the link-placement check: confirm every link sits where the platform rule requires (first reply, first comment, single embedded link) and not in the primary body.
 6. Run the claim check: every number in the draft traces to a real source, and every promise made in the copy ("we'll follow up," "link below") is actually kept somewhere in the post or thread.
-7. Run the engagement-design check — name the one signal this post is built to earn (reply, save, share, click) and confirm the copy actually asks for or invites that signal, not a generic "let us know what you think."
+7. Run the engagement-design check — name the one signal this post is built to earn (reply, save, share, click, profile visit, bookmark) and confirm the copy actually asks for or invites that signal, not a generic "let us know what you think." Weigh the target against engagement-monitor's ladder (saves > meaningful comments > shares-with-commentary > short comments > likes — see engagement-monitor for the full ladder) and, for X drafts specifically, remember replies and dwell time are the top ranking tier with profile clicks and bookmarks close behind.
 8. Produce a verdict: PASS, or a FLAG list. Every flag gets a specific fix suggestion, not just a pointer at the rule it broke.
 
 ## rules
@@ -29,6 +29,7 @@ Use before anything goes live: a finished thread, LinkedIn post, Discord announc
 - A claim with no traceable source is a flag, even if it's probably true.
 - A promise the copy makes but the post doesn't deliver on (a link that isn't there, a follow-up that isn't scheduled) is a flag.
 - The verdict is binary at the top: PASS or FLAG. A flagged draft lists every issue with a concrete fix, not a vague "tighten this up."
+- Rank the target engagement signal by cost to the reader, not by what's easiest to earn: saves outweigh meaningful comments, which outweigh shares with commentary, which outweigh short comments, which outweigh likes. Consult engagement-monitor's ladder for the exact weights when the call isn't obvious.
 
 ## checklist
 

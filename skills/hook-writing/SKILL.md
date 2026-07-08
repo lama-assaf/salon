@@ -19,6 +19,14 @@ Use when a user asks for a hook, an opening line, a headline, or says an existin
 6. Pick the winning angle by matching it to the campaign's actual goal (awareness, clicks, replies, saves) rather than by personal taste.
 7. Check the winning hook against the formula-family notes — specific odd numbers, paid-to-free or free-to-paid reversals, and "X is dead" category-obituary framing have tested strongest; lean toward those shapes when the facts support them honestly.
 8. Final pass: strip hedge words, and if this is for X, confirm the hook is not phrased as a question.
+9. Once a week (or whenever a batch is due), run the reverse-engineering drill: pull 3 hooks that actually stopped your scroll this week, name which formula family each one is using, then rewrite each for your own topic. This keeps the formula list grounded in what's currently working instead of a fixed set memorized once and never updated.
+
+## two more named patterns
+
+- **Prediction + stakes**: "I think [claim] is the [year] [category] that [consequence]." States a specific, falsifiable prediction and ties a real stake to being wrong or right about it.
+- **Tribal-identity split**: "[X] separates [group A] from [group B]." Forces the reader to place themselves on one side of a divide before they've finished reading the line.
+
+Both belong in the same rotation as the six angles above — use them when the topic actually supports a prediction or a real split, not as a reflex.
 
 ## the six-angle drill
 
@@ -41,6 +49,7 @@ Generate one hook for each angle, every time, before choosing:
 - A specific, concrete failure named in the first three lines beats a polished, hedge-free claim — readers trust the writer who admits what didn't work.
 - Never hedge in a hook. Cut "I think," "maybe," "sort of," and similar softeners entirely.
 - Never open an X hook with a question — it reads as engagement bait and depresses the open rate rather than lifting it.
+- Reach for prediction+stakes or tribal-identity split when the topic genuinely supports a forecast or a real divide — don't force either pattern onto a topic that has neither.
 
 ## checklist
 

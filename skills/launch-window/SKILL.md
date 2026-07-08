@@ -34,6 +34,8 @@ On X specifically, stay actively online for at least 30 minutes after posting �
 
 Feed and ranking models seed a new post to roughly 8-15% of followers first, then decide whether to extend distribution based on what happens in that seed window. The first 60-90 minutes after publish determine the bulk of a post's eventual reach — a post that's ignored for the first hour and picked up on hour three has already lost most of the distribution it could have gotten. This is why the checklist is a schedule to execute, not a reaction to slow numbers.
 
+Once the golden hour passes, distribution doesn't stop — it just slows down. Extended distribution keeps running for roughly 24-72 hours after publish, still pulling in views and engagement from the feed algorithm's later scoring passes. That's a separate fact from the 48-72 hour judgment rule below: the post keeps circulating in that window even though you're not allowed to score it as a win or a flop until the plateau check.
+
 ## judgment discipline
 
 Do not evaluate a post's performance before the 48-72 hour plateau. Early numbers are still moving and any read taken during the launch window is a read of the algorithm's seed test, not the post's actual reception. Schedule the retro check for 48-72 hours out and treat the launch window itself as pure execution — no verdict, no "this one's not landing," until the plateau check.
@@ -43,6 +45,7 @@ Do not evaluate a post's performance before the 48-72 hour plateau. Early number
 - Reply to every comment in the T+0-5 window; a gap here is the single most avoidable loss of early momentum.
 - The T+5-15 adjacent-post pass is 5-10 posts, and every comment on those posts follows comment-strategy's own rules (15+ words, real shape, ethics check).
 - Stay online at least 30 minutes after posting on X.
+- Extended distribution runs roughly 24-72 hours after the golden hour ends; that's ongoing algorithm circulation, not the 48-72h judgment window below — the two facts don't overlap.
 - No performance verdict before the 48-72h plateau — schedule that check instead of eyeballing it day-of.
 - The final pass at T+1-2h is where active driving stops; don't keep manufacturing engagement past it.
 - Every reply and comment sent during the window still passes `rules/social/engagement-ethics.md`.

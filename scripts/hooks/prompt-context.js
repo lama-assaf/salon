@@ -20,6 +20,23 @@ const path = require('path');
 const os = require('os');
 const { readHookInput } = require('./lib/io');
 
+// one family, one guard: when atelier is co-installed, its own UserPromptSubmit
+// hook already injects instincts.md, so salon skips that block here to avoid
+// surfacing the same reference twice. voice.md and keyword skill refs are
+// salon-only and still get injected regardless. mirrors pre-write.js's guard.
+function atelierInstalled() {
+  if (process.env.ATELIER_ROOT) return true;
+  try {
+    const cacheDir = path.join(os.homedir(), '.claude', 'plugins', 'cache');
+    if (!fs.existsSync(cacheDir)) return false;
+    for (const marketplace of fs.readdirSync(cacheDir)) {
+      const p = path.join(cacheDir, marketplace, 'atelier');
+      if (fs.existsSync(p)) return true;
+    }
+  } catch (e) { /* detection must never break the hook */ }
+  return false;
+}
+
 // keyword to category map. very intentional, very small. larger map = more noise.
 const KEYWORDS = {
   // writing
@@ -173,6 +190,11 @@ function main() {
     // file has been edited substantially even if some example text remains
     hasInstincts = true;
   }
+
+  // when atelier is co-installed, its own hook already surfaces instincts.md —
+  // skip that block here so the same reference doesn't get injected twice.
+  // voice.md and keyword skill refs stay salon's job either way.
+  if (atelierInstalled()) hasInstincts = false;
 
   // brand voice: inject when a writing keyword matched
   const WRITING_KEYS = ['thread', 'tweet', 'linkedin', 'announcement', 'discord announcement', 'broadcast', 'telegram', 'hook', 'viral', 'post audit'];

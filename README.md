@@ -82,7 +82,7 @@ salon's skills and rules were built by adapting patterns and structure from seve
 - [anthropics/knowledge-work-plugins](https://github.com/anthropics/knowledge-work-plugins)
 - [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills)
 
-and acknowledgment to work we referenced for concepts and framing without adapting code or text directly: ColdIQ, create-viral-content, social-ai-team.
+and acknowledgment to work we referenced for concepts and framing without adapting code or text directly: ColdIQ, create-viral-content, social-ai-team, [lycfyi/community-agent-plugin](https://github.com/lycfyi/community-agent-plugin) (AGPL-3.0), and [borghei/Claude-Skills](https://github.com/borghei/Claude-Skills) (MIT + Commons Clause).
 
 ## license
 

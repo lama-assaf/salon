@@ -17,7 +17,7 @@ Use when a user asks for a LinkedIn post, update, or announcement, or asks to ad
 4. Write the hook — the line or two that must land before the "see more" fold — inside the first 210 characters. It should carry the whole point on its own, not tease it.
 5. Draft the body to land in the 900–1,300 character range. Shorter reads thin for the algorithm; longer loses the scroll-stopping reader who isn't ready to commit to an essay.
 6. Format for the mobile reading pane: break lines at roughly 55 characters and leave a blank line between them. Dense paragraphs die on LinkedIn's narrow column.
-7. Write a first comment that adds something the post didn't say — a source, a caveat, a link. Post it immediately after the post goes live; do not put the link inside the post body.
+7. Write a first comment that adds something the post didn't say — a source, a caveat, a link. Post it immediately after the post goes live; do not put the link inside the post body. Treat the comment as its own content type: caption it on purpose, then check it against three quick self-tests — does it stand alone if someone reads only it? does it add something the post lacks? would you tap it if a stranger posted it? On a conversion post, prefer a comment-to-DM funnel ("comment X and I'll send it over") to a bare link — it converts better and keeps the post itself link-free.
 8. Add 0–2 hashtags at the very end, only if they're specific enough to route to the right audience. Cut them if you're reaching for a third.
 
 ## rules
@@ -27,8 +27,9 @@ Use when a user asks for a LinkedIn post, update, or announcement, or asks to ad
 - Lines ≤ 55 characters, separated by blank lines — write for a phone screen, not a document.
 - 0–2 hashtags maximum, placed at the end.
 - Any external link goes in the first comment, never the post body. A body link costs roughly 0.3–0.6x the reach of the same post without one.
-- The first comment is a content decision, not an afterthought — seed it with something substantive, not just the link.
+- The first comment is a content decision, not an afterthought — seed it with something substantive, not just the link. Caption it deliberately and run it past the stand-alone / adds-something / would-you-tap-it self-tests before sending; on conversion posts, a comment-to-DM funnel beats a raw link.
 - Design the post for the signal you actually want: a save (useful/reference content), a meaningful comment (a real opinion, a question that invites debate), or a share (something the reader wants attached to their own name). Pick one and write toward it.
+- Format changes reach on its own: a carousel typically pulls roughly 2.5-3.5x a plain text post, and native video roughly 1.2-2x. Weigh that multiplier against the extra production time before defaulting to text.
 
 ## framework menu
 

@@ -14,10 +14,14 @@ const { spawnSync } = require('child_process');
 const HOOK = path.resolve(__dirname, '..', 'scripts', 'hooks', 'prompt-context.js');
 let fail = 0;
 
-function runHook(input) {
+function runHook(input, envOverrides) {
+  // isolate from the real dev machine's HOME (which may have atelier
+  // installed for real) unless a test explicitly wants to exercise that.
+  const cleanHome = fs.mkdtempSync(path.join(os.tmpdir(), 'salon-cleanhome-'));
   return spawnSync(process.execPath, [HOOK], {
     input: JSON.stringify(input),
     encoding: 'utf-8',
+    env: { ...process.env, HOME: cleanHome, ATELIER_ROOT: '', ...envOverrides },
   });
 }
 
@@ -116,6 +120,35 @@ console.log('\nmemory resolution');
   check('voice content injected', res.stdout.includes('voice-marker-vvv'), res.stdout.slice(0, 200));
   check(
     'linkedin skill reference injected alongside voice',
+    res.stdout.includes('linkedin-post/SKILL.md'),
+    res.stdout.slice(0, 200)
+  );
+}
+
+// 8. atelier co-installed: instincts block is skipped (atelier's own hook already
+//    injects it), but voice.md and the keyword skill ref still get injected
+{
+  const tmpHome = tmpProject();
+  fs.mkdirSync(path.join(tmpHome, '.claude', 'plugins', 'cache', 'atelier', 'atelier', '0.1.0'), { recursive: true });
+  const proj = tmpProject();
+  const memDir = path.join(proj, '.atelier', 'memory');
+  fs.mkdirSync(memDir, { recursive: true });
+  fs.writeFileSync(path.join(memDir, 'instincts.md'), '- unique-instinct-marker-xyz\n');
+  fs.writeFileSync(path.join(memDir, 'voice.md'), 'voice-marker-vvv\n');
+  const res = spawnSync(process.execPath, [HOOK], {
+    input: JSON.stringify({ prompt: 'write a linkedin post about hiring', cwd: proj }),
+    encoding: 'utf-8',
+    env: { ...process.env, HOME: tmpHome, ATELIER_ROOT: '' },
+  });
+  check('exit 0 with atelier co-installed', res.status === 0, `status ${res.status}`);
+  check(
+    'instincts marker NOT injected when atelier is co-installed',
+    !res.stdout.includes('unique-instinct-marker-xyz'),
+    res.stdout.slice(0, 200)
+  );
+  check('voice content still injected', res.stdout.includes('voice-marker-vvv'), res.stdout.slice(0, 200));
+  check(
+    'linkedin skill reference still injected',
     res.stdout.includes('linkedin-post/SKILL.md'),
     res.stdout.slice(0, 200)
   );

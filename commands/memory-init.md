@@ -14,7 +14,9 @@ existing file, regardless of which plugin wrote it.
 1. determine the project root (the current working directory's repo root, or
    the cwd itself if not a git repo).
 2. if `<project>/.atelier/memory/` already exists (atelier or a previous
-   salon run created it), ADD ONLY the salon files that are missing:
+   salon run created it), ADD ALL salon-side files that are missing:
+   - `.atelier/memory/instincts.md` ← `${CLAUDE_PLUGIN_ROOT}/memory/instincts.md`
+   - `.atelier/memory/lessons.md` ← `${CLAUDE_PLUGIN_ROOT}/memory/lessons.md`
    - `.atelier/memory/voice.md` ← `${CLAUDE_PLUGIN_ROOT}/memory/voice.md`
    - `.atelier/memory/campaigns/README.md` ← `${CLAUDE_PLUGIN_ROOT}/memory/campaigns/README.md`
 
@@ -36,8 +38,12 @@ existing file, regardless of which plugin wrote it.
    - memory is meant to be committed so the team shares it; if they prefer
      machine-local memory, add `.atelier/` to `.gitignore`
    - if atelier is also installed on this project, it reads and writes the
-     same directory — nothing further to configure, and neither plugin will
-     clobber the other's files
+     same directory, and neither plugin will clobber the other's files. one
+     gap to flag: if salon seeded the tree first and atelier is installed
+     later, atelier's own memory-init stops the moment it sees the directory
+     already exists, so it won't lay down its `glossary.md` or `decisions/`
+     seeds. tell the user to seed those manually from atelier's own templates
+     if they want them.
 
 ## notes
 
