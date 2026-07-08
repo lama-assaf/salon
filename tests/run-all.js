@@ -369,19 +369,10 @@ if (fs.existsSync(promptContextPath)) {
   const referencedSkills = [...promptContextSrc.matchAll(/'(skills\/[a-z-]+\/SKILL\.md)'/g)].map((m) => m[1]);
   const uniqueRefs = [...new Set(referencedSkills)];
 
-  // skills that land in later plan tasks; anything else missing is a typo.
-  // prune entries as the real skills land — final review checks this is empty-able.
-  const PENDING_SKILLS = new Set([
-    'skills/campaign-brief/SKILL.md',
-    'skills/content-calendar/SKILL.md',
-    'skills/campaign-retro/SKILL.md',
-    'skills/social-listening/SKILL.md',
-  ]);
-
+  // all skills referenced by KEYWORDS have landed; anything missing now is a typo.
   for (const r of uniqueRefs) {
     const full = path.join(ROOT, r);
     if (fs.existsSync(full)) ok(`prompt-context ref: ${r}`);
-    else if (PENDING_SKILLS.has(r)) ok(`prompt-context ref ${r} pending later task, skipping`);
     else err('prompt-context ref', `${r} referenced by KEYWORDS but missing`);
   }
 
