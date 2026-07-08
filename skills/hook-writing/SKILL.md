@@ -24,18 +24,18 @@ Use when a user asks for a hook, an opening line, a headline, or says an existin
 
 Generate one hook for each angle, every time, before choosing:
 
-1. **Number-led** — leads with a specific, load-bearing number.
-2. **Contrarian** — states the opposite of the conventional wisdom on the topic.
-3. **Personal transformation** — before/after framed through one person's experience.
-4. **Authority steal** — borrows credibility from a recognizable name, source, or institution, used accurately.
-5. **Admission** — opens with a mistake, limitation, or uncomfortable truth about your own side.
-6. **Future shock** — states a near-term consequence the reader hasn't priced in yet.
+1. **Number-led**: leads with a specific, load-bearing number.
+2. **Contrarian**: states the opposite of the conventional wisdom on the topic.
+3. **Personal transformation**: before/after framed through one person's experience.
+4. **Authority steal**: borrows credibility from a recognizable name, source, or institution, used accurately.
+5. **Admission**: opens with a mistake, limitation, or uncomfortable truth about your own side.
+6. **Future shock**: states a near-term consequence the reader hasn't priced in yet.
 
 ## rules
 
 - Mobile-fold budget: assume roughly 210 characters of attention before a reader decides to bail, tighter on X where the visible line is what matters.
 - Two-line hook format: line 1 ≤ 40 characters, a complete punchy statement on its own; line 2 contrasts or reframes line 1.
-- Always generate all six angles before selecting — picking after one draft skips the comparison that finds the strongest option.
+- Always generate all six angles before selecting. Picking after one draft skips the comparison that finds the strongest option.
 - Specific odd numbers ("we cut this to 17 minutes") read as more credible and outperform round numbers ("we cut this to 15 minutes") — use the real number, don't round for cleanliness.
 - Paid-to-free and free-to-paid reversals, and "category X is dead / category X is over" framing, are the two formula families that have tested strongest — reach for them first when the underlying fact supports it, and never force one where it isn't true.
 - A specific, concrete failure named in the first three lines beats a polished, hedge-free claim — readers trust the writer who admits what didn't work.
