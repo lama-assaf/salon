@@ -21,11 +21,11 @@ Use when a draft is written but not yet trusted — a high-stakes launch post, a
 
 ## the five personas
 
-1. **Skeptic** — why should anyone care? If the draft can't answer this in the first few lines, nothing else matters yet.
-2. **Expert** — is this actually accurate? Checks claims, numbers, and technical statements for anything that would embarrass the writer in front of someone who knows the subject.
-3. **Scroller** — would this actually stop a thumb mid-scroll, or does it read as more of the same? Judges the hook and the first visual impression, not the argument.
-4. **Competitor** — could literally anyone else in this space have posted this? Flags anything generic enough to have come from a rival account with the names swapped.
-5. **Editor** — cut 20%. Forces a length pass that removes throat-clearing, redundant setup, and any sentence that doesn't earn its place.
+1. **Skeptic**: why should anyone care? If the draft can't answer this in the first few lines, nothing else matters yet.
+2. **Expert**: is this actually accurate? Checks claims, numbers, and technical statements for anything that would embarrass the writer in front of someone who knows the subject.
+3. **Scroller**: would this actually stop a thumb mid-scroll, or does it read as more of the same? Judges the hook and the first visual impression, not the argument.
+4. **Competitor**: could literally anyone else in this space have posted this? Flags anything generic enough to have come from a rival account with the names swapped.
+5. **Editor**: cut 20%. Forces a length pass that removes throat-clearing, redundant setup, and any sentence that doesn't earn its place.
 
 ## depth tiers
 

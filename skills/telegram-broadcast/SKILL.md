@@ -7,22 +7,22 @@ description: Draft a Telegram broadcast message. Use whenever the user asks to w
 
 ## when to use
 
-Use when a user asks for a Telegram channel post, a pinned campaign message, or a broadcast update. Use it too when adapting a Discord announcement for Telegram — this skill covers that handoff.
+Use when a user asks for a Telegram channel post, a pinned campaign message, or a broadcast update. Use it too when adapting a Discord announcement for Telegram. This skill covers that handoff.
 
 ## workflow
 
-1. Read `.atelier/memory/voice.md` if present. Telegram broadcasts read closer to a newsletter than a chat message — check the per-platform register notes.
+1. Read `.atelier/memory/voice.md` if present. Telegram broadcasts read closer to a newsletter than a chat message. Check the per-platform register notes.
 2. Check `.atelier/memory/instincts.md` for overrides on cadence or banned topics.
 3. Write the first line to carry the entire story on its own — it's what shows in the notification preview and the channel list, often the only line a member reads.
 4. Draft the body assuming it will be forwarded out of context. Cut any phrase that depends on something said earlier in the channel ("as mentioned above," "following up on the last post").
 5. Stay under the 4,096-character message cap; if the content genuinely needs more, split into a clearly-labeled follow-up rather than trimming meaning down to fit.
-6. If this message should be pinned, check what's currently pinned first — unpin the superseded message before pinning the new one. Never stack pins.
+6. If this message should be pinned, check what's currently pinned first. Unpin the superseded message before pinning the new one. Never stack pins.
 7. If there's one primary action (join, claim, RSVP), attach it as a single inline button rather than a bare link in the text.
 8. If this is adapted from a Discord announcement, rewrite it for the broadcast register — don't mirror the Discord text verbatim.
 
 ## rules
 
-- First line must stand alone as the whole story — assume it's the only line seen in the notification preview.
+- First line must stand alone as the whole story: assume it's the only line seen in the notification preview.
 - 4,096-character hard cap per message.
 - Write forward-friendly: no references to earlier messages in the same channel. A forwarded message should make full sense with zero surrounding context.
 - One pinned campaign message at a time. When a new one goes up, unpin the old one in the same action.

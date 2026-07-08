@@ -11,12 +11,12 @@ Use before anything goes live: a finished thread, LinkedIn post, Discord announc
 
 ## workflow
 
-1. Read `.atelier/memory/voice.md` if present and check the draft against it — adjective sliders, vocabulary do/don't lists, per-platform register.
+1. Read `.atelier/memory/voice.md` if present and check the draft against it: adjective sliders, vocabulary do/don't lists, per-platform register.
 2. Check `.atelier/memory/instincts.md` for standing overrides (banned topics, claim requirements) and confirm the draft respects them.
-3. Run the platform-limits check: character counts, link placement, hashtag count, embed field lengths — against `rules/social/platform-limits.md` for whatever platform this draft targets.
+3. Run the platform-limits check: character counts, link placement, hashtag count, embed field lengths, against `rules/social/platform-limits.md` for whatever platform this draft targets.
 4. Run the AI-tell scan across all three tiers in `rules/social/ai-tells.md` plus the shared `rules/copy/anti-ai-tone.md` — forensic tier is an automatic flag, strict tier is flagged by default, aesthetic tier gets judgment.
-5. Run the link-placement check — confirm every link sits where the platform rule requires (first reply, first comment, single embedded link) and not in the primary body.
-6. Run the claim check — every number in the draft traces to a real source, and every promise made in the copy ("we'll follow up," "link below") is actually kept somewhere in the post or thread.
+5. Run the link-placement check: confirm every link sits where the platform rule requires (first reply, first comment, single embedded link) and not in the primary body.
+6. Run the claim check: every number in the draft traces to a real source, and every promise made in the copy ("we'll follow up," "link below") is actually kept somewhere in the post or thread.
 7. Run the engagement-design check — name the one signal this post is built to earn (reply, save, share, click) and confirm the copy actually asks for or invites that signal, not a generic "let us know what you think."
 8. Produce a verdict: PASS, or a FLAG list. Every flag gets a specific fix suggestion, not just a pointer at the rule it broke.
 

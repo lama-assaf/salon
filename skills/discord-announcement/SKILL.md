@@ -26,7 +26,7 @@ Use when a user asks for an announcement, an event promo, an AMA plan, or a role
 - Embed title: 256 characters max. Embed description: 4,096 characters max.
 - Ping etiquette ladder, loudest to quietest:
   - `@everyone`: reserved for changes that affect literally every member (downtime, security, a rule change). Overuse trains members to mute the server.
-  - `@here`: time-critical only: something happening in the next hour that active members should know about.
+  - `@here`: time-critical only, for something happening in the next hour that active members should know about.
   - role ping: the default for anything audience-specific. Prefer this over `@here` whenever the news only matters to a subset of members.
   - no ping: routine updates, recaps, anything members will see in the normal scroll.
 - Web3 context: listing, partnership, and token announcements get a compliance pass before posting — no price predictions, no "guaranteed returns" framing, no language that reads as investment advice. State facts; let members draw conclusions.
