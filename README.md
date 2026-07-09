@@ -46,9 +46,9 @@ run these once per project, in order:
 
 **hooks**: a prompt-context hook that injects project memory and voice automatically, and a pre-write hook that scans drafts for banned tone before they save (and defers to atelier when it's co-installed, see above).
 
-**11 MCP server templates**, none wired up or started by default: `/salon:mcp-setup` merges the ones you pick into the project's `.mcp.json`:
+**13 MCP server templates**, none wired up or started by default: `/salon:mcp-setup` merges the ones you pick into the project's `.mcp.json`:
 
-x-api, twitter-community, discord, telegram, reddit, hacker-news, brave-search, postiz, typefully, buffer, linkedin-unofficial.
+x-api, twitter-community, discord, telegram, reddit, hacker-news, brave-search, postiz, typefully, buffer, linkedin-unofficial, apify-social-listening (hosted + local: cookieless X/LinkedIn listening via pinned Apify actors, pay-per-result).
 
 a few of these carry real cost or ToS flags, called out in `mcp-configs/README.md`:
 
@@ -56,6 +56,7 @@ a few of these carry real cost or ToS flags, called out in `mcp-configs/README.m
 - **telegram** runs over an MTProto user session and needs a one-time interactive `auth` step before first use.
 - **postiz**, **typefully**, and **buffer** are scheduling services with their own plan limits; don't assume a free tier.
 - **linkedin-unofficial** is an unofficial scraper against LinkedIn's terms. adding it requires explicit confirmation during setup.
+- **apify-social-listening** is pay-per-result on your Apify account; its actors are cookieless but scraping X/LinkedIn still carries platform-ToS exposure (see "cookieless is not ToS-less" in mcp-configs/README.md).
 
 ## campaign lifecycle walkthrough
 
@@ -90,4 +91,4 @@ MIT, see [LICENSE](LICENSE). read [DISCLAIMER.md](DISCLAIMER.md) before you conn
 
 ## experimental, use your judgment
 
-this is an experimental plugin. it ships with no warranty of any kind, and everything it drafts or posts is published under your judgment, not ours; the operator owns the output. salon is not affiliated with, endorsed by, or sponsored by X, LinkedIn, Discord, Telegram, Reddit, Hacker News, Brave Search, Postiz, Typefully, Buffer, or any other vendor referenced in its MCP templates. check each platform's and vendor's own terms before you connect an account.
+this is an experimental plugin. it ships with no warranty of any kind, and everything it drafts or posts is published under your judgment, not ours; the operator owns the output. salon is not affiliated with, endorsed by, or sponsored by X, LinkedIn, Discord, Telegram, Reddit, Hacker News, Brave Search, Postiz, Typefully, Buffer, Apify, or any other vendor referenced in its MCP templates. check each platform's and vendor's own terms before you connect an account.
