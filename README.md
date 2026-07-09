@@ -58,6 +58,29 @@ a few of these carry real cost or ToS flags, called out in `mcp-configs/README.m
 - **linkedin-unofficial** is an unofficial scraper against LinkedIn's terms. adding it requires explicit confirmation during setup.
 - **apify-social-listening** is pay-per-result on your Apify account; its actors are cookieless but scraping X/LinkedIn still carries platform-ToS exposure (see "cookieless is not ToS-less" in mcp-configs/README.md).
 
+### where keys go
+
+catalog entries reference tokens as `${VAR}` placeholders, and claude code
+expands those from your environment when it starts the server. put each token
+in your shell profile, not in `.mcp.json`: that file is usually committed, and
+the placeholder exists so the secret never lands in the repo.
+
+apify example (one token covers all five pinned actors; there are no
+per-actor keys):
+
+1. get the token at [console.apify.com](https://console.apify.com) under
+   settings > API & integrations > personal API tokens. the free plan's
+   monthly usage credit is enough to trial with; heavier listening needs
+   billing enabled on the apify account.
+2. `export APIFY_TOKEN="apify_api_..."` in `~/.zshrc` (or equivalent), then
+   restart the shell so claude code inherits it.
+3. `/salon:mcp-setup apify-social-listening` in the project, then `/mcp` to
+   connect (or restart the session).
+
+the same pattern applies to every other keyed entry (`DISCORD_TOKEN`,
+`TG_APP_ID`/`TG_API_HASH`, `BRAVE_API_KEY`, `POSTIZ_API_KEY`, and so on):
+export the var, run `/salon:mcp-setup <key>`, reconnect.
+
 ## campaign lifecycle walkthrough
 
 a full run through salon, start to finish:
