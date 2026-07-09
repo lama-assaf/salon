@@ -38,6 +38,13 @@ choose into the current project's `.mcp.json`.
      confirmation from the user ("yes, I understand this violates LinkedIn's
      ToS and accept the risk") before adding this entry; do not add it on an
      ambiguous or implied yes.
+   - apify-social-listening (or -local): needs APIFY_TOKEN. **COST:
+     pay-per-result** billed to the user's Apify account (X ~$0.18-0.40 per
+     1k tweets, LinkedIn ~$1.50-2 per 1k posts). the actors are cookieless
+     (no platform login involved), but tell the user plainly: cookieless
+     lowers account risk, it does not remove platform-ToS exposure — point
+     them at the "cookieless is not ToS-less" note in mcp-configs/README.md.
+     prefer the hosted entry; offer -local only if they want a stdio server.
 3. ask the user which servers to enable ($ARGUMENTS may already name them,
    e.g. `/salon:mcp-setup discord telegram` skips the question, but
    linkedin-unofficial still requires the explicit confirmation from step 2
