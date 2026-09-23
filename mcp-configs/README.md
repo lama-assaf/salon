@@ -20,7 +20,7 @@ choose interactively.
 |---|---|---|---|
 | x-api | official X hosted MCP (xurl OAuth bridge) | `X_CLIENT_ID`, `X_CLIENT_SECRET` | COST: requires an X dev app on the Pay-per-use Production plan, not free |
 | twitter-community | @enescinar/twitter-mcp (raw v1.1-style keys) | `TWITTER_API_KEY` + 3 more | community, stale ~1yr |
-| twitterapi-io | official twitterapi.io MCP (@kaitoinfra/twitterapi-io-mcp-server) | `TWITTERAPI_IO_API_KEY` | read-only listening (12 tools); pay-per-request, no X developer app needed |
+| twitterapi-io | official twitterapi.io MCP (@twitterapi_io/mcp-server) | `TWITTERAPI_IO_API_KEY` | read-only listening (12 tools); pay-per-request, no X developer app needed |
 | discord | mcp-discord | `DISCORD_TOKEN` | none |
 | telegram | @chaindead/telegram-mcp (MTProto user session) | `TG_APP_ID`, `TG_API_HASH` | ToS: user-session automation; requires a one-time interactive `auth` subcommand before first use |
 | reddit | reddit-mcp-server | reads: none; writes: `REDDIT_USERNAME`/`REDDIT_PASSWORD` | none |
