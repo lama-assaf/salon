@@ -20,6 +20,7 @@ choose interactively.
 |---|---|---|---|
 | x-api | official X hosted MCP (xurl OAuth bridge) | `X_CLIENT_ID`, `X_CLIENT_SECRET` | COST: requires an X dev app on the Pay-per-use Production plan, not free |
 | twitter-community | @enescinar/twitter-mcp (raw v1.1-style keys) | `TWITTER_API_KEY` + 3 more | community, stale ~1yr |
+| twitterapi-io | official twitterapi.io MCP (@kaitoinfra/twitterapi-io-mcp-server) | `TWITTERAPI_IO_API_KEY` | read-only listening (12 tools); pay-per-request, no X developer app needed |
 | discord | mcp-discord | `DISCORD_TOKEN` | none |
 | telegram | @chaindead/telegram-mcp (MTProto user session) | `TG_APP_ID`, `TG_API_HASH` | ToS: user-session automation; requires a one-time interactive `auth` subcommand before first use |
 | reddit | reddit-mcp-server | reads: none; writes: `REDDIT_USERNAME`/`REDDIT_PASSWORD` | none |
@@ -41,7 +42,7 @@ both apify entries expose exactly these five actors and nothing else (`?tools=` 
 |---|---|---|---|---|
 | X | kaitoeasyapi/twitter-x-data-tweet-scraper-pay-per-result-cheapest | yes | $0.18/1k tweets | cheapest keyword search, 99.9% run success, 17.8k users |
 | X | apidojo/tweet-scraper | yes | $0.40/1k tweets (50-tweet min/query) | largest adoption (66.8k users), advanced search syntax |
-| LinkedIn | harvestapi/linkedin-post-search | yes | ~$1.50-2/1k posts | boolean keyword search with author/company/date filters, 4.92 rating |
+| ~~LinkedIn~~ | ~~harvestapi/linkedin-post-search~~ | — | — | **unpinned 2026-09-08**: the hosted MCP call hung 10+ minutes on every run without an actor run starting. Re-pin only after a call returns in under a minute |
 | LinkedIn | harvestapi/linkedin-company-posts | yes | $1.50/1k posts | competitor company-page monitoring, up to 6 companies at once |
 | LinkedIn | harvestapi/linkedin-profile-posts | yes | $1.50/1k posts | individual profile post history with engagement |
 

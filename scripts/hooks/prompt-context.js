@@ -66,6 +66,15 @@ const KEYWORDS = {
   'retro': ['skills/campaign-retro/SKILL.md'],
   'trending': ['skills/social-listening/SKILL.md'],
   'social listening': ['skills/social-listening/SKILL.md'],
+
+  // theme engine (facts-and-themes)
+  'theme engine': ['skills/theme-listening/SKILL.md', 'skills/engine-dashboard/SKILL.md'],
+  'theme listening': ['skills/theme-listening/SKILL.md'],
+  'listener signals': ['skills/theme-listening/SKILL.md'],
+  'theme post': ['skills/theme-post/SKILL.md', 'skills/claim-gate/SKILL.md'],
+  'claim gate': ['skills/claim-gate/SKILL.md'],
+  'publish to the website': ['skills/website-publish/SKILL.md', 'skills/claim-gate/SKILL.md'],
+  'dashboard': ['skills/engine-dashboard/SKILL.md'],
 };
 
 function isSalonRoot(p) {

@@ -28,6 +28,17 @@
         "ACCESS_TOKEN_SECRET": "${TWITTER_ACCESS_TOKEN_SECRET}"
       }
     },
+    "twitterapi-io": {
+      "_comment": "official twitterapi.io MCP server (twitterapi.io/twitter-mcp-server). 12 read-only X/Twitter data tools: search_tweets, get_user_info, get_user_followers, get_user_last_tweets, get_user_mentions, get_tweet_replies, get_tweet_quotes, get_trends, and more. No X developer app needed; pay-per-request key from the twitterapi.io dashboard. Read-only: pair with x-api, postiz, typefully or buffer to publish.",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@kaitoinfra/twitterapi-io-mcp-server"
+      ],
+      "env": {
+        "TWITTERAPI_IO_API_KEY": "${TWITTERAPI_IO_API_KEY}"
+      }
+    },
     "discord": {
       "_comment": "bot-token Discord server. github.com/barryyip0625/mcp-discord. read/send/search messages, members, reactions, forums, webhooks. Create a bot at discord.com/developers and invite it to your guild. NOTE: the env var is DISCORD_TOKEN (verified against README) \u2014 not DISCORD_BOT_TOKEN.",
       "command": "npx",
@@ -114,9 +125,9 @@
       }
     },
     "apify-social-listening": {
-      "_comment": "hosted Apify MCP pinned to cookieless X/Twitter + LinkedIn listening actors (no platform login or cookies involved; scraping runs on Apify's proxy infra). Pay-per-result billed to your Apify account: X ~$0.18-0.40/1k tweets, LinkedIn ~$1.50-2/1k posts. Token from console.apify.com > Settings > Integrations. COST + ToS: reduces operational/account risk, does NOT remove platform-ToS exposure - see mcp-configs/README.md.",
+      "_comment": "hosted Apify MCP pinned to cookieless X/Twitter + LinkedIn listening actors (harvestapi/linkedin-post-search dropped 2026-09-08: its hosted call hung for 10+ minutes on every run without starting an actor) (no platform login or cookies involved; scraping runs on Apify's proxy infra). Pay-per-result billed to your Apify account: X ~$0.18-0.40/1k tweets, LinkedIn ~$1.50-2/1k posts. Token from console.apify.com > Settings > Integrations. COST + ToS: reduces operational/account risk, does NOT remove platform-ToS exposure - see mcp-configs/README.md.",
       "type": "url",
-      "url": "https://mcp.apify.com?tools=kaitoeasyapi/twitter-x-data-tweet-scraper-pay-per-result-cheapest,apidojo/tweet-scraper,harvestapi/linkedin-post-search,harvestapi/linkedin-company-posts,harvestapi/linkedin-profile-posts",
+      "url": "https://mcp.apify.com?tools=kaitoeasyapi/twitter-x-data-tweet-scraper-pay-per-result-cheapest,apidojo/tweet-scraper,harvestapi/linkedin-company-posts,harvestapi/linkedin-profile-posts",
       "headers": {
         "Authorization": "Bearer ${APIFY_TOKEN}"
       }
@@ -128,7 +139,7 @@
         "-y",
         "@apify/actors-mcp-server",
         "--tools",
-        "kaitoeasyapi/twitter-x-data-tweet-scraper-pay-per-result-cheapest,apidojo/tweet-scraper,harvestapi/linkedin-post-search,harvestapi/linkedin-company-posts,harvestapi/linkedin-profile-posts"
+        "kaitoeasyapi/twitter-x-data-tweet-scraper-pay-per-result-cheapest,apidojo/tweet-scraper,harvestapi/linkedin-company-posts,harvestapi/linkedin-profile-posts"
       ],
       "env": {
         "APIFY_TOKEN": "${APIFY_TOKEN}"
