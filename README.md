@@ -31,13 +31,13 @@ run these once per project, in order:
 
 ## what's inside
 
-**22 skills**, grouped by job:
+**23 skills**, grouped by job:
 
 - *strategy*: campaign-brief, content-calendar, campaign-retro
 - *writing*: x-thread, linkedin-post, discord-announcement, telegram-broadcast, hook-writing, post-audit, adversarial-refinement
 - *engagement*: comment-strategy, reply-playbook, engagement-monitor, community-health, launch-window
 - *insights*: social-listening, trend-to-content
-- *theme engine*: theme-listening, theme-post, claim-gate, website-publish, engine-dashboard
+- *theme engine*: theme-listening, theme-post, claim-gate, website-publish, engine-dashboard, publisher-gates (ships `scripts/publisher_gates.py`, the article, teaser, engagement and compliance checks the Publisher runs)
 
 **5 agents**: campaign-strategist, engagement-manager, community-manager, theme-listener, theme-desk.
 

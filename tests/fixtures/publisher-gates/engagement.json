@@ -1,0 +1,45 @@
+{
+  "entries": [
+    {
+      "kind": "comment",
+      "platform": "X",
+      "status": "ready",
+      "target": "2103243082892247456",
+      "target_author": "@example_infra",
+      "target_text": "Sovereign AI is becoming a question of infrastructure, economics and scale. How do we build facilities that adapt to local rules?",
+      "text": "The useful distinction is sovereignty as a control structure, not a hosting label. Which parts of the stack are governed locally: physical operation, data residency, administrative access, model execution, or the legal entity accountable for the workload?"
+    },
+    {
+      "kind": "comment",
+      "platform": "X",
+      "status": "ready",
+      "target": "2103243082892247457",
+      "target_author": "@example_infra",
+      "target_text": "Sovereign AI is becoming a question of infrastructure, economics and scale.",
+      "text": "Great point, agree!"
+    },
+    {
+      "kind": "reply",
+      "platform": "LinkedIn",
+      "status": "ready",
+      "target": "urn:li:comment:1",
+      "text": "The detail you are asking about is in the report here https://example.org/report, where the methodology is laid out in section two."
+    },
+    {
+      "kind": "comment",
+      "platform": "LinkedIn",
+      "status": "ready",
+      "target": "urn:li:share:2",
+      "target_text": "Exchange drained after a hack; enforcement action expected this week.",
+      "text": "The question for any venue after an incident is which law applies, who can administer the facility, and what evidence survives for regulated participants afterwards."
+    },
+    {
+      "kind": "comment",
+      "platform": "X",
+      "status": "ready",
+      "target": "2103243082892247458",
+      "target_text": "Stablecoin FX: what happens when the biggest market stops closing on weekends.",
+      "text": "The weekend question is bigger than market hours. Once FX can move continuously, who decides whether the receiver is eligible before value settles, and what evidence survives afterwards?"
+    }
+  ]
+}
