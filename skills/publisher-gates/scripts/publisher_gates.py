@@ -354,7 +354,8 @@ def compliance_gate(text: str, rules: dict[str, Any] | None = None, *, disclosur
     for paragraph in re.split(r"\n\s*\n", re.sub(r"[@#]\w+", "", text)):
         if re.search(r"\bzilliqa\b", paragraph, re.I) and not any(p in paragraph.lower() for p in cleared):
             sentence = next((s for s in SENTENCE_SPLIT.split(paragraph) if re.search(r"\bzilliqa\b", s, re.I)), paragraph)
-            reasons.append(f"claim about Zilliqa: '{re.sub(r'\\s+', ' ', sentence.strip())[:80]}'")
+            quoted = re.sub(r"\s+", " ", sentence.strip())[:80]
+            reasons.append(f"claim about Zilliqa: '{quoted}'")
             break
     if disclosure:
         reasons.extend(disclosure_gate(text, rules))
