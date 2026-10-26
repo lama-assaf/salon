@@ -251,18 +251,18 @@ if (!fs.existsSync(rulesDir)) {
 }
 
 // ============================================================
-// 7. hook scripts: pre-write / prompt-context execute cleanly on
+// 7. hook scripts: pre-write / session-context execute cleanly on
 // representative inputs. salon ships no post-write hook (deleted from
 // the ported suite). tolerant: skip-with-ok when a hook file doesn't
-// exist yet (pre-write.js lands in Task 4, prompt-context.js in Task 3).
+// exist yet.
 // ============================================================
 section('hooks');
 
 const HOOKS_DIR = path.join(ROOT, 'scripts/hooks');
 const preWritePath = path.join(HOOKS_DIR, 'pre-write.js');
-const promptContextPath = path.join(HOOKS_DIR, 'prompt-context.js');
+const sessionContextPath = path.join(HOOKS_DIR, 'session-context.js');
 
-for (const hookFile of ['pre-write.js', 'prompt-context.js']) {
+for (const hookFile of ['pre-write.js', 'session-context.js']) {
   const p = path.join(HOOKS_DIR, hookFile);
   if (!fs.existsSync(p)) {
     ok(`hook ${hookFile} not yet present, skipping`);
@@ -280,7 +280,7 @@ if (fs.existsSync(preWritePath)) {
   // being co-installed on the machine running the tests (deference is tested
   // separately in tests/prewrite-deference.test.js).
   const cleanHome = fs.mkdtempSync(path.join(os.tmpdir(), 'salon-runall-home-'));
-  const standaloneEnv = { ...process.env, HOME: cleanHome, ATELIER_ROOT: '' };
+  const standaloneEnv = { ...process.env, HOME: cleanHome, CLAUDE_CONFIG_DIR: '', ATELIER_ROOT: '' };
 
   // run pre-write with empty stdin (should exit 0 silently)
   {
@@ -329,65 +329,24 @@ if (fs.existsSync(preWritePath)) {
   ok('pre-write hook-exec checks skipped (pre-write.js not yet present)');
 }
 
-if (fs.existsSync(promptContextPath)) {
-  // run prompt-context with a keyword
+if (fs.existsSync(sessionContextPath)) {
+  // session-context without edited instincts: silent (the seed copy is still the template)
   {
-    const input = JSON.stringify({ prompt: 'draft an x thread about our launch' });
-    const r = spawnSync('node', [promptContextPath], {
-      input,
+    const proj = fs.mkdtempSync(path.join(require('os').tmpdir(), 'salon-session-'));
+    const r = spawnSync('node', [sessionContextPath], {
+      input: JSON.stringify({ hook_event_name: 'SessionStart', source: 'startup', cwd: proj }),
       encoding: 'utf-8',
-      env: { ...process.env, SALON_ROOT: ROOT },
+      env: { ...process.env, SALON_ROOT: ROOT, ATELIER_ROOT: '', CLAUDE_CONFIG_DIR: '', HOME: proj },
     });
-    if (r.status === 0 && r.stdout.includes('x-thread')) ok('prompt-context: runs cleanly on a matching prompt');
-    else err('prompt-context x-thread', `status=${r.status}, stdout=${r.stdout.slice(0,200)}`);
-  }
-
-  // prompt-context with no match
-  {
-    const input = JSON.stringify({ prompt: 'random unrelated question about cooking' });
-    const r = spawnSync('node', [promptContextPath], {
-      input,
-      encoding: 'utf-8',
-      env: { ...process.env, SALON_ROOT: ROOT },
-    });
-    if (r.status === 0 && r.stdout.length === 0) ok('prompt-context: silent on no match');
-    else err('prompt-context no match', `status=${r.status}, stdout=${r.stdout.slice(0,100)}`);
+    if (r.status === 0 && r.stdout.length === 0) ok('session-context: silent without edited instincts');
+    else err('session-context silent', `status=${r.status}, stdout=${r.stdout.slice(0,100)}`);
   }
 } else {
-  ok('prompt-context hook-exec checks skipped (prompt-context.js not yet present)');
+  ok('session-context hook-exec checks skipped (session-context.js not yet present)');
 }
 
 // ============================================================
-// 8. cross-reference checks
-// every skill/rule referenced in prompt-context's keyword map should exist.
-// tolerant: skip-with-ok when prompt-context.js doesn't exist yet.
-// ============================================================
-section('cross-references');
-
-if (fs.existsSync(promptContextPath)) {
-  const promptContextSrc = fs.readFileSync(promptContextPath, 'utf-8');
-  const referencedSkills = [...promptContextSrc.matchAll(/'(skills\/[a-z-]+\/SKILL\.md)'/g)].map((m) => m[1]);
-  const uniqueRefs = [...new Set(referencedSkills)];
-
-  // all skills referenced by KEYWORDS have landed; anything missing now is a typo.
-  for (const r of uniqueRefs) {
-    const full = path.join(ROOT, r);
-    if (fs.existsSync(full)) ok(`prompt-context ref: ${r}`);
-    else err('prompt-context ref', `${r} referenced by KEYWORDS but missing`);
-  }
-
-  const referencedRules = [...promptContextSrc.matchAll(/'(rules\/[a-z\/-]+\.md)'/g)].map((m) => m[1]);
-  for (const r of [...new Set(referencedRules)]) {
-    const full = path.join(ROOT, r);
-    if (fs.existsSync(full)) ok(`prompt-context ref: ${r}`);
-    else err(`prompt-context ref ${r}`, 'rule file does not exist');
-  }
-} else {
-  ok('cross-reference checks skipped (prompt-context.js not yet present)');
-}
-
-// ============================================================
-// 9. checks.js unit tests
+// 8. checks.js unit tests
 // ============================================================
 section('checks.js unit tests');
 
@@ -457,7 +416,7 @@ const { findBannedTone, checkRhythm, scanText, checkEmDashFiller } = require(pat
 }
 
 // ============================================================
-// 10. docs substantive + README credits section
+// 9. docs substantive + README credits section
 // tolerant: each doc is skipped (not failed) while absent, since README
 // and DISCLAIMER only land in Task 10. LICENSE exists from Task 1 on.
 // ============================================================

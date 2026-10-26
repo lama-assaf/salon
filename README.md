@@ -45,7 +45,7 @@ run these once per project, in order:
 
 **rules**: shared brand/copy guardrails plus social-specific ones, platform character and format limits, engagement ethics, and a list of AI writing tells to avoid.
 
-**hooks**: a prompt-context hook that injects project memory and voice automatically, and a pre-write hook that scans drafts for banned tone before they save (and defers to atelier when it's co-installed, see above).
+**hooks**: a session-context hook that injects the project's instincts once per session (skipped when atelier is installed, since atelier's own hook does it), and a pre-write hook that scans drafts for banned tone before they save (and defers to atelier when it's co-installed, see above).
 
 **13 MCP server templates**, none wired up or started by default: `/salon:mcp-setup` merges the ones you pick into the project's `.mcp.json`:
 

@@ -27,9 +27,9 @@ yet). neither command overwrites a file the other one already wrote.
 
 ## how it gets used
 
-the prompt-context hook (scripts/hooks/prompt-context.js) resolves the
-current project and injects `instincts.md` as context automatically, plus
-`voice.md` when a writing-related keyword is detected in the prompt. if the
+the session-context hook (scripts/hooks/session-context.js) resolves the
+current project and injects `instincts.md` as context once per session.
+`voice.md` is read by the writing skills themselves when they run. if the
 project has no memory directory yet, the seed `instincts.md` in this folder
 is used as a fallback (and skipped while it still contains only template
 examples).
