@@ -22,25 +22,9 @@
 
 'use strict';
 
-const fs = require('fs');
-const os = require('os');
-const path = require('path');
-
 const { readHookInput, extractWriteContent, warn, emit } = require('./lib/io');
 const { scanText } = require('./lib/checks');
-
-function atelierInstalled() {
-  if (process.env.ATELIER_ROOT) return true;
-  try {
-    const cacheDir = path.join(os.homedir(), '.claude', 'plugins', 'cache');
-    if (!fs.existsSync(cacheDir)) return false;
-    for (const marketplace of fs.readdirSync(cacheDir)) {
-      const p = path.join(cacheDir, marketplace, 'atelier');
-      if (fs.existsSync(p)) return true;
-    }
-  } catch (e) { /* detection must never break the hook */ }
-  return false;
-}
+const { atelierInstalled } = require('./lib/atelier');
 
 function shouldSkip(path) {
   if (!path || typeof path !== 'string') return false;

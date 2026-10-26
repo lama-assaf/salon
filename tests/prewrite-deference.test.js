@@ -25,7 +25,7 @@ console.log('\npre-write deference');
   const home = fs.mkdtempSync(path.join(os.tmpdir(), 'salon-noatelier-'));
   const res = spawnSync(process.execPath, [HOOK], {
     input: FLAGGED_INPUT, encoding: 'utf-8',
-    env: { ...process.env, HOME: home, ATELIER_ROOT: '' },
+    env: { ...process.env, HOME: home, CLAUDE_CONFIG_DIR: '', ATELIER_ROOT: '' },
   });
   check('standalone exit 0', res.status === 0, `status ${res.status}`);
   check('standalone warns', (res.stdout + res.stderr).length > 0);
@@ -37,7 +37,7 @@ console.log('\npre-write deference');
   fs.mkdirSync(path.join(home, '.claude', 'plugins', 'cache', 'atelier', 'atelier', '0.1.0'), { recursive: true });
   const res = spawnSync(process.execPath, [HOOK], {
     input: FLAGGED_INPUT, encoding: 'utf-8',
-    env: { ...process.env, HOME: home, ATELIER_ROOT: '' },
+    env: { ...process.env, HOME: home, CLAUDE_CONFIG_DIR: '', ATELIER_ROOT: '' },
   });
   check('deferred exit 0', res.status === 0, `status ${res.status}`);
   check('deferred is silent', (res.stdout + res.stderr).trim() === '', (res.stdout + res.stderr).slice(0, 120));
@@ -48,7 +48,7 @@ console.log('\npre-write deference');
   const home = fs.mkdtempSync(path.join(os.tmpdir(), 'salon-envatelier-'));
   const res = spawnSync(process.execPath, [HOOK], {
     input: FLAGGED_INPUT, encoding: 'utf-8',
-    env: { ...process.env, HOME: home, ATELIER_ROOT: '/some/path' },
+    env: { ...process.env, HOME: home, CLAUDE_CONFIG_DIR: '', ATELIER_ROOT: '/some/path' },
   });
   check('env-deferred exit 0', res.status === 0, `status ${res.status}`);
   check('env-deferred is silent', (res.stdout + res.stderr).trim() === '');
