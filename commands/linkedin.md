@@ -1,6 +1,7 @@
 ---
 name: linkedin
 description: draft a LinkedIn post by running the linkedin-post workflow, then offer a post-audit pass
+disable-model-invocation: true
 ---
 
 # /linkedin

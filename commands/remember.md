@@ -1,6 +1,7 @@
 ---
 name: remember
 description: append a note to this project's shared memory (lessons.md, or instincts.md with --instinct)
+disable-model-invocation: true
 ---
 
 # /remember

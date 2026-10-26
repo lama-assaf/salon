@@ -1,6 +1,7 @@
 ---
 name: mcp-setup
 description: enable optional MCP servers (x-api, discord, telegram, reddit, and more) for this project
+disable-model-invocation: true
 ---
 
 # /mcp-setup

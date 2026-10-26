@@ -1,6 +1,7 @@
 ---
 name: engine
 description: run one pass of the facts-and-themes communication engine: listen on the theme hashtags, queue proposals, draft what Alpha approved, gate every claim, render the dashboard, publish what Alpha released
+disable-model-invocation: true
 ---
 
 # /engine

@@ -1,6 +1,7 @@
 ---
 name: campaign
 description: start a new campaign by running the campaign-brief workflow, then offer to build the content calendar
+disable-model-invocation: true
 ---
 
 # /campaign

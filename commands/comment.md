@@ -1,6 +1,7 @@
 ---
 name: comment
 description: draft comments on someone else's post by running the comment-strategy workflow
+disable-model-invocation: true
 ---
 
 # /comment

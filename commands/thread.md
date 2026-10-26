@@ -1,6 +1,7 @@
 ---
 name: thread
 description: draft an X thread by running the x-thread workflow, then offer a post-audit pass
+disable-model-invocation: true
 ---
 
 # /thread

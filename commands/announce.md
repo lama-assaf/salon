@@ -1,6 +1,7 @@
 ---
 name: announce
 description: draft a Discord server announcement by running the discord-announcement workflow
+disable-model-invocation: true
 ---
 
 # /announce

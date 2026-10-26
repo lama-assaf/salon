@@ -1,6 +1,7 @@
 ---
 name: launch
 description: run the golden-hour post-launch engagement routine by running the launch-window workflow
+disable-model-invocation: true
 ---
 
 # /launch

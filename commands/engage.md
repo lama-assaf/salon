@@ -1,6 +1,7 @@
 ---
 name: engage
 description: triage and draft replies to comments on the user's own post by running the reply-playbook workflow
+disable-model-invocation: true
 ---
 
 # /engage

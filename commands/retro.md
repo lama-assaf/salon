@@ -1,6 +1,7 @@
 ---
 name: retro
 description: run the post-campaign readout by running the campaign-retro workflow
+disable-model-invocation: true
 ---
 
 # /retro

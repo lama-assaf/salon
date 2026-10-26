@@ -1,6 +1,7 @@
 ---
 name: memory-init
 description: seed or extend the shared per-project memory (.atelier/memory/) with salon's files
+disable-model-invocation: true
 ---
 
 # /memory-init

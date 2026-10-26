@@ -1,6 +1,7 @@
 ---
 name: listen
 description: run a trend and sentiment listening pass by running the social-listening workflow
+disable-model-invocation: true
 ---
 
 # /listen

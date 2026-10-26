@@ -1,6 +1,7 @@
 ---
 name: broadcast
 description: draft a Telegram broadcast by running the telegram-broadcast workflow
+disable-model-invocation: true
 ---
 
 # /broadcast
