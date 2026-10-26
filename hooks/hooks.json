@@ -5,7 +5,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "node ${CLAUDE_PLUGIN_ROOT}/scripts/hooks/session-context.js"
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/hooks/session-context.js\""
           }
         ]
       }
@@ -16,7 +16,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "node ${CLAUDE_PLUGIN_ROOT}/scripts/hooks/pre-write.js"
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/hooks/pre-write.js\""
           }
         ]
       }
